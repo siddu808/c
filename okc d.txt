@@ -1,0 +1,120 @@
+//comment lines
+#include<stdio.h> #include<string.h> int main(){
+char s[50]; int n;
+printf("Enter the string:\n"); gets(s);
+ 
+if (s[0] == '/'){
+if (s[1] == '/'){
+printf("Given statement is a comment\n");
+}
+else if (s[1] == '*'){
+n = strlen(s) - 1;
+if (s[n] == '/' && s[n-1] == '*'){
+printf("Given statement is a comment\n");
+ 
+
+}
+else{
+ printf("Given statement is not a comment\n");
+}
+else{
+printf("Given statement is not a comment\n");
+}
+ 
+
+
+printf("Given statement is not a comment\n");
+ 
+
+}
+}
+else{
+ 
+printf("Given statement is not a comment\n");
+ 
+rintf("Given statement is not a comment\n");
+}
+return 0;
+}
+//check identifiers
+#include<stdio.h> #include<string.h>
+ 
+int main(){ char s[50]; int flag = 0,i;
+printf("Enter the string:\n"); gets(s);
+if (isalpha(s[0]) || s[0] == '_'){ for(i=1;i<strlen(s);i++){
+if (isdigit(s[i]) || isalpha(s[i]) || s[i] == '_'){ flag = 1;
+ flag=1;
+}
+else{
+break;
+}
+}
+}
+if (flag == 1){
+printf("Given string is valid identifier\n");
+}
+else
+printf("Given string is not valid!\n");
+ 
+return 0;
+}
+
+
+//check operagors
+
+#include<stdio.h> int main(){
+char s[5];
+printf("Enter the operator:\n"); gets(s);
+switch(s[0]){
+case '>':{
+if (s[1] == '=')
+printf("Greater than Equal to\n");
+ 
+else
+
+break;}     case '<':{
+ 
+
+printf("Greater than\n");
+ 
+if (s[1] == '=')
+printf("Less than Equal to\n");
+ 
+else
+
+break;}     case '=':{
+ 
+
+printf("Less than\n");
+ 
+if (s[1] == '=')
+printf("Comparing operator\n");
+ 
+else
+
+break;}     case '|':{
+ 
+
+printf("Assignment operator\n");
+ 
+if (s[1] == '|')
+printf("Logical OR\n");
+ 
+else
+
+break;}     case '&':{
+ 
+
+printf("Bitwise OR\n");
+ 
+if (s[1] == '&')
+ 
+else break;}
+ 
+printf("Logical AND\n"); printf("Bitwises AND\n");
+ 
+case '+':{printf("Addition operator\n");break;} case '-':{printf("Subtraction operator\n");break;} case '*':{printf("Multiplication operator\n");break;} case '/':{printf("Division operator\n");break;} case '%':{printf("Modulo operator\n");break;} default:
+printf("Not an operator\n");
+}
+return 0;
+}

@@ -1,0 +1,59 @@
+%{
+
+#include<stdio.h>
+
+%}
+
+digit [0-9]+ word [A-Za-z]+
+spsym [(){};,%\{\]] arith [+-/*] whitspc[ \t\n] underscr[_]
+%%
+
+{whitspc}+ ;
+
+\"[^\n\"]*\" {printf("\n %s is a literal",yytext);} int |
+include | if |
+else | while | do | switch | case | default | break |
+continue |
+ 
+scanf {printf("\n%s is a Keyword",yytext);}
+
+{spsym} {printf("\n%s is a Special Symbol",yytext);}
+
+{arith} {printf("\n%s is a Binary Operator",yytext);}
+
+
+= {printf("\n%s is a Assignment operator",yytext);} "++" |"--" {printf("\n%s is an Unary Operator",yytext);}
+"&" |"|" |"^" {printf("\n %s is bitwise operator",yytext);} "<" |">" |"<=" |">=" |"==" |"!=" {printf("\n %s is a relational operator",yytext);}
+{digit}+ {printf("\n %s is an integer constant",yytext);} ({digit}+)|({digit}*\.{digit}+) {printf("\n %s is an float constant",yytext);} ({word}({word}|{digit}|{underscr})*) {printf("\n%s is a Identifier",yytext);}
+%%
+
+int main(int argc,char *argv[])
+
+{
+
+FILE *fp; fp=fopen(argv[1],"r"); if(!fp)
+{
+
+printf("cnt open:%s",argv[1]); exit(1);
+}
+
+yyin=fp; yylex();
+ 
+}
+
+int yywrap()
+
+{
+
+return 1;
+
+}
+
+f1.c:
+
+//var.c #include<stdio.h> #include<conio.h> void main()
+{
+
+int a,b,c; a=1; b=2;
+c=a+b; printf("Sum:%d",c);
+}
