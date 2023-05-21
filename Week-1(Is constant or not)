@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+char s[20];
+int val;
+printf("Enter the string:\n");
+gets(s);
+val = atoi(s);
+if (val){
+printf("The given string is constant\n");
+}
+else{
+}
+printf("The given string is not constant\n");
+eturn 0;
+}
